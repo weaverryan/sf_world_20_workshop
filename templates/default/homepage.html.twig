@@ -2,4 +2,34 @@
 
 {% block body %}
     <h1>Hello SymfonyWorld!</h1>
+
+    <h3>Users:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>API Tokens</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles|join(', ') }}</td>
+                    <td>
+                        <ul class="list-group">
+                            {% for token in user.tokens %}
+                                <li class="list-group-item">
+                                    {{ token.token }}
+                                    <br>
+                                    <small>{{ token.scopes|join(', ') }}</small>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

@@ -30,7 +30,10 @@ final class ApiTokenFactory extends ModelFactory
     {
         return [
             'user' => UserFactory::new(),
-            'scopes' => ['profile:read'],
+            'scopes' => self::faker()->randomElements(
+                ['profile:read', 'profile:write', 'tokens:read', 'tokens:write'],
+                rand(1, 4)
+            ),
         ];
     }
 

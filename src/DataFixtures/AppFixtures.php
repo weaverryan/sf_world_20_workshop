@@ -11,13 +11,23 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $user = UserFactory::new()->create([
+        $ryan = UserFactory::new()->create([
             'email' => 'ryan@symfonycasts.com',
+            'plainPassword' => 'foo',
+            'roles' => ['ROLE_USER', 'ROLE_ADMIN']
+        ]);
+
+        ApiTokenFactory::new()->createMany(2, [
+            'user' => $ryan,
+        ]);
+
+        $fabien = UserFactory::new()->create([
+            'email' => 'fabien@symfony.com',
             'plainPassword' => 'foo',
         ]);
 
-        ApiTokenFactory::new()->createMany(5, [
-            'user' => $user,
+        ApiTokenFactory::new()->createMany(2, [
+            'user' => $fabien,
         ]);
     }
 }

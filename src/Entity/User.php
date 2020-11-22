@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -36,6 +38,16 @@ class User implements UserInterface
     private $password;
 
     private $plainPassword;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ApiToken::class, mappedBy="user")
+     */
+    private $tokens;
+
+    public function __construct()
+    {
+        $this->tokens = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -125,5 +137,13 @@ class User implements UserInterface
         $this->plainPassword = $plainPassword;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|ApiToken[]
+     */
+    public function getTokens(): Collection
+    {
+        return $this->tokens;
     }
 }
