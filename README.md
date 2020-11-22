@@ -4,6 +4,13 @@ Well hi there! This repository holds the starting code for the
 [All about Symfony's new Security Component](https://live.symfony.com/2020-world/workshop#all-about-symfony-s-new-security-component)
 Symfony World 2020 Workshop.
 
+Please go through the setup details below before the workshop, just
+to make sure that everything is ready and working. If you have any
+doubts, questions or funny stories, please message me aat
+`ryan@symfonycasts.com` or ping me as `weaverryan` on the Symfony Slack!
+
+Then, on the day of the workshop, get ready to nerd-out on security 🤓.
+
 ## Setup
 
 If you've just downloaded the code, congratulations!!
