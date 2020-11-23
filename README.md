@@ -13,9 +13,9 @@ Then, on the day of the workshop, get ready to nerd-out on security 🤓.
 
 ## Setup
 
-If you've just downloaded the code, congratulations!!
+First, clone the code from this page and reward yourself with a snack!
 
-To get it working, follow these steps:
+To get the app working, follow these steps:
 
 **Download Composer dependencies**
 
