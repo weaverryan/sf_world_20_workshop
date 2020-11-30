@@ -1,7 +1,6 @@
 {
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=7.2.5",
@@ -66,12 +65,12 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
-        "symfony/debug-bundle": "^5.2@RC",
+        "symfony/debug-bundle": "^5.2",
         "symfony/maker-bundle": "^1.23",
         "symfony/monolog-bundle": "^3.0",
-        "symfony/stopwatch": "^5.2@RC",
-        "symfony/var-dumper": "^5.2@RC",
-        "symfony/web-profiler-bundle": "^5.2@RC",
+        "symfony/stopwatch": "^5.2",
+        "symfony/var-dumper": "^5.2",
+        "symfony/web-profiler-bundle": "^5.2",
         "zenstruck/foundry": "^1.5"
     }
 }
