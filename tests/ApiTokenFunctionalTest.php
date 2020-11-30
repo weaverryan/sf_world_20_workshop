@@ -22,6 +22,7 @@ class ApiTokenFunctionalTest extends WebTestCase
         // X-TOKEN is the header name
         $client->request('GET', '/secure', [], [], [
             'HTTP_X-TOKEN' => $apiToken->getToken(),
+            'HTTP_ACCEPT' => 'application/json'
         ]);
 
         $this->assertResponseStatusCodeSame(200);
