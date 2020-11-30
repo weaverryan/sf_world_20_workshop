@@ -26,5 +26,13 @@ class ApiTokenFunctionalTest extends WebTestCase
         ]);
 
         $this->assertResponseStatusCodeSame(200);
+
+        $content = $client->getResponse()->getContent();
+        $this->assertJson($content);
+        $data = json_decode($content, true);
+        $this->assertEquals([
+            'email' => $user->getEmail(),
+            'roles' => ['ROLE_USER'],
+        ], $data);
     }
 }
