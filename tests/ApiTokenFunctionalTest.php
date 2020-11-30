@@ -17,7 +17,10 @@ class ApiTokenFunctionalTest extends WebTestCase
         $client = self::createClient();
 
         $user = UserFactory::new()->create(['email' => 'foo@example.com']);
-        $apiToken = ApiTokenFactory::new()->create(['user' => $user]);
+        $apiToken = ApiTokenFactory::new()->create([
+            'user' => $user,
+            'scopes' => ['profile:read', 'profile:write']
+        ]);
 
         // X-TOKEN is the header name
         $client->request('GET', '/secure', [], [], [
