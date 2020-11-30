@@ -1,0 +1,28 @@
+diff --git a/src/Security/LastLoginSubscriber.php b/src/Security/LastLoginSubscriber.php
+index e0cee52..bee5d38 100644
+--- a/src/Security/LastLoginSubscriber.php
++++ b/src/Security/LastLoginSubscriber.php
+@@ -5,6 +5,7 @@ namespace App\Security;
+ use App\Entity\User;
+ use Doctrine\ORM\EntityManagerInterface;
+ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
++use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
+ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+ use Symfony\Component\Security\Http\Event\CheckPassportEvent;
+ use Symfony\Component\Security\Http\Event\LoginSuccessEvent;
+@@ -38,7 +39,15 @@ class LastLoginSubscriber implements EventSubscriberInterface
+             throw new \Exception('What the heck?');
+         }
+ 
++        $user = $userBadge->getUser();
+ 
++        if (!$user instanceof User) {
++            throw new \Exception('this is craziness!');
++        }
++
++        if ($user->getEmail() === 'bad_user@symfony.com') {
++            throw new CustomUserMessageAuthenticationException('Account is temporarily locked.');
++        }
+     }
+ 
+     public static function getSubscribedEvents()

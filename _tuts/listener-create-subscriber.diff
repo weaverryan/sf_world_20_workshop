@@ -1,0 +1,18 @@
+diff --git a/src/Security/LastLoginSubscriber.php b/src/Security/LastLoginSubscriber.php
+new file mode 100644
+index 0000000..054729f
+--- /dev/null
++++ b/src/Security/LastLoginSubscriber.php
+@@ -0,0 +1,12 @@
++<?php
++
++namespace App\Security;
++
++use Symfony\Component\EventDispatcher\EventSubscriberInterface;
++
++class LastLoginSubscriber implements EventSubscriberInterface
++{
++    public static function getSubscribedEvents()
++    {
++    }
++}

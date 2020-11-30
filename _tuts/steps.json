@@ -124,7 +124,37 @@
             "id": "entrypoint-use-targetpathtrait",
             "name": "Entrypoint: use TargetPathTrait",
             "description": null
+        },
+        {
+            "id": "listener-create-subscriber",
+            "name": "Listener: create subscriber",
+            "description": null
+        },
+        {
+            "id": "listener-getsubscribedevents",
+            "name": "Listener: getSubscribedEvents",
+            "description": null
+        },
+        {
+            "id": "listener-getuser",
+            "name": "Listener: getUser()",
+            "description": null
+        },
+        {
+            "id": "listener-setlastloginat",
+            "name": "Listener: setLastLoginAt()",
+            "description": null
+        },
+        {
+            "id": "listener-checkpassportevent",
+            "name": "Listener: CheckPassportEvent",
+            "description": null
+        },
+        {
+            "id": "listener-deny-login-for-bad-user",
+            "name": "Listener: deny login for bad_user",
+            "description": null
         }
     ],
-    "sha": "d28734c344e1a5e9a5a037aa2216c455d5d4b7cf"
+    "sha": "829479f5a966f891c577a1247d10f756530dbcbf"
 }

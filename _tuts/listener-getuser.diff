@@ -1,0 +1,24 @@
+diff --git a/src/Security/LastLoginSubscriber.php b/src/Security/LastLoginSubscriber.php
+index fbd3901..9cc722e 100644
+--- a/src/Security/LastLoginSubscriber.php
++++ b/src/Security/LastLoginSubscriber.php
+@@ -2,6 +2,7 @@
+ 
+ namespace App\Security;
+ 
++use App\Entity\User;
+ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+ use Symfony\Component\Security\Http\Event\LoginSuccessEvent;
+ 
+@@ -9,6 +10,11 @@ class LastLoginSubscriber implements EventSubscriberInterface
+ {
+     public function onLoginSuccess(LoginSuccessEvent $event)
+     {
++        $user = $event->getUser();
++
++        if (!$user instanceof User) {
++            throw new \Exception('what the heck?');
++        }
+     }
+ 
+     public static function getSubscribedEvents()

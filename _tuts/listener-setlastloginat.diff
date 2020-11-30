@@ -1,0 +1,34 @@
+diff --git a/src/Security/LastLoginSubscriber.php b/src/Security/LastLoginSubscriber.php
+index 9cc722e..b860663 100644
+--- a/src/Security/LastLoginSubscriber.php
++++ b/src/Security/LastLoginSubscriber.php
+@@ -3,11 +3,19 @@
+ namespace App\Security;
+ 
+ use App\Entity\User;
++use Doctrine\ORM\EntityManagerInterface;
+ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+ use Symfony\Component\Security\Http\Event\LoginSuccessEvent;
+ 
+ class LastLoginSubscriber implements EventSubscriberInterface
+ {
++    private $entityManager;
++
++    public function __construct(EntityManagerInterface $entityManager)
++    {
++        $this->entityManager = $entityManager;
++    }
++
+     public function onLoginSuccess(LoginSuccessEvent $event)
+     {
+         $user = $event->getUser();
+@@ -15,6 +23,9 @@ class LastLoginSubscriber implements EventSubscriberInterface
+         if (!$user instanceof User) {
+             throw new \Exception('what the heck?');
+         }
++
++        $user->setLastLoginAt(new \DateTimeImmutable('now'));
++        $this->entityManager->flush();
+     }
+ 
+     public static function getSubscribedEvents()
