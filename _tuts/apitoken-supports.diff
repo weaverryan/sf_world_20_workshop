@@ -1,0 +1,13 @@
+diff --git a/src/Security/ApiTokenAuthenticator.php b/src/Security/ApiTokenAuthenticator.php
+index 5011a96..17eb699 100644
+--- a/src/Security/ApiTokenAuthenticator.php
++++ b/src/Security/ApiTokenAuthenticator.php
+@@ -13,7 +13,7 @@ class ApiTokenAuthenticator extends AbstractAuthenticator
+ {
+     public function supports(Request $request): ?bool
+     {
+-        // TODO: Implement supports() method.
++        return $request->headers->has('X-TOKEN');
+     }
+ 
+     public function authenticate(Request $request): PassportInterface

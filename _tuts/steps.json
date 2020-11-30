@@ -154,7 +154,42 @@
             "id": "listener-deny-login-for-bad-user",
             "name": "Listener: deny login for bad_user",
             "description": null
+        },
+        {
+            "id": "apitoken-create-empty-authenticator",
+            "name": "ApiToken: create empty authenticator",
+            "description": null
+        },
+        {
+            "id": "apitoken-add-to-firewall",
+            "name": "ApiToken: add to firewall",
+            "description": null
+        },
+        {
+            "id": "apitoken-supports",
+            "name": "ApiToken: supports()",
+            "description": null
+        },
+        {
+            "id": "apitoken-authenticate",
+            "name": "ApiToken: authenticate()",
+            "description": null
+        },
+        {
+            "id": "apitoken-success-and-failure",
+            "name": "ApiToken: success and failure",
+            "description": null
+        },
+        {
+            "id": "apitoken-mess-with-token-in-test",
+            "name": "ApiToken: mess with token in test",
+            "description": null
+        },
+        {
+            "id": "apitoken-undo-that",
+            "name": "ApiToken: undo that",
+            "description": null
         }
     ],
-    "sha": "829479f5a966f891c577a1247d10f756530dbcbf"
+    "sha": "0f7025c577d2a99cb02ab7a6267131be690afeb1"
 }
