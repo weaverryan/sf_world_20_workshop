@@ -1,0 +1,31 @@
+diff --git a/src/Security/ApiTokenAuthenticator.php b/src/Security/ApiTokenAuthenticator.php
+index 5656c55..49a0bb6 100644
+--- a/src/Security/ApiTokenAuthenticator.php
++++ b/src/Security/ApiTokenAuthenticator.php
+@@ -34,11 +34,11 @@ class ApiTokenAuthenticator implements AuthenticatorInterface
+     {
+         $token = $request->headers->get('X-TOKEN');
+ 
+-        return new SelfValidatingPassport(
+-            new UserBadge($token, function($token) {
+-                $apiToken = $this->apiTokenRepository
+-                    ->findOneBy(['token' => $token]);
++        $apiToken = $this->apiTokenRepository
++            ->findOneBy(['token' => $token]);
+ 
++        $passport = new SelfValidatingPassport(
++            new UserBadge($token, function($token) use ($apiToken) {
+                 if (!$apiToken) {
+                     throw new CustomUserMessageAuthenticationException('Invalid token');
+                 }
+@@ -46,6 +46,10 @@ class ApiTokenAuthenticator implements AuthenticatorInterface
+                 return $apiToken->getUser();
+             })
+         );
++
++        $passport->setAttribute('api_token', $apiToken);
++
++        return $passport;
+     }
+ 
+     public function createAuthenticatedToken(PassportInterface $passport, string $firewallName): TokenInterface

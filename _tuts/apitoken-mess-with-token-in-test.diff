@@ -1,8 +1,8 @@
 diff --git a/tests/ApiTokenFunctionalTest.php b/tests/ApiTokenFunctionalTest.php
-index 604beba..da77ea9 100644
+index 29706e6..217d3c9 100644
 --- a/tests/ApiTokenFunctionalTest.php
 +++ b/tests/ApiTokenFunctionalTest.php
-@@ -21,7 +21,7 @@ class ApiTokenFunctionalTest extends WebTestCase
+@@ -24,7 +24,7 @@ class ApiTokenFunctionalTest extends WebTestCase
  
          // X-TOKEN is the header name
          $client->request('GET', '/secure', [], [], [

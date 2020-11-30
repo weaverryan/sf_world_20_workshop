@@ -1,0 +1,13 @@
+diff --git a/tests/ApiTokenFunctionalTest.php b/tests/ApiTokenFunctionalTest.php
+index 29706e6..62c4902 100644
+--- a/tests/ApiTokenFunctionalTest.php
++++ b/tests/ApiTokenFunctionalTest.php
+@@ -35,7 +35,7 @@ class ApiTokenFunctionalTest extends WebTestCase
+         $data = json_decode($content, true);
+         $this->assertEquals([
+             'email' => $user->getEmail(),
+-            'roles' => ['ROLE_USER'],
++            'roles' => ['ROLE_USER', 'ROLE_SCOPE_PROFILE:READ', 'ROLE_SCOPE_PROFILE:WRITE'],
+         ], $data);
+     }
+ }

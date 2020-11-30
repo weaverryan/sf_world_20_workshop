@@ -189,7 +189,32 @@
             "id": "apitoken-undo-that",
             "name": "ApiToken: undo that",
             "description": null
+        },
+        {
+            "id": "apiscopes-update-test-to-look-for-scope-roles",
+            "name": "ApiScopes: update test to look for scope roles",
+            "description": null
+        },
+        {
+            "id": "apiscopes-createauthenticatedtoken",
+            "name": "ApiScopes: createAuthenticatedToken()",
+            "description": null
+        },
+        {
+            "id": "apiscopes-set-token-on-passport",
+            "name": "ApiScopes: set token on passport",
+            "description": null
+        },
+        {
+            "id": "apiscopes-get-token-back-out",
+            "name": "ApiScopes: get token back out",
+            "description": null
+        },
+        {
+            "id": "apiscopes-add-scopes-to-roles",
+            "name": "ApiScopes: add scopes to roles",
+            "description": null
         }
     ],
-    "sha": "0f7025c577d2a99cb02ab7a6267131be690afeb1"
+    "sha": "268968f1dd9c8420cd95f2a1554bcc6b602fab8c"
 }
