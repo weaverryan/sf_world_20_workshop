@@ -30,5 +30,14 @@ class AppFixtures extends Fixture
         ApiTokenFactory::new()->createMany(2, [
             'user' => $fabien,
         ]);
+
+        $badUser = UserFactory::new()->create([
+            'email' => 'bad_user@symfony.com',
+            'plainPassword' => 'foo',
+        ]);
+
+        ApiTokenFactory::new()->createMany(2, [
+            'user' => $badUser,
+        ]);
     }
 }
