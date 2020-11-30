@@ -46,6 +46,11 @@ class User implements UserInterface
      */
     private $tokens;
 
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private $lastLoginAt;
+
     public function __construct()
     {
         $this->tokens = new ArrayCollection();
@@ -147,5 +152,15 @@ class User implements UserInterface
     public function getTokens(): Collection
     {
         return $this->tokens;
+    }
+
+    public function getLastLoginAt(): ?\DateTimeInterface
+    {
+        return $this->lastLoginAt;
+    }
+
+    public function setLastLoginAt(\DateTimeInterface $lastLoginAt)
+    {
+        $this->lastLoginAt = $lastLoginAt;
     }
 }
