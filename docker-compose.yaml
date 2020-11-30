@@ -15,9 +15,9 @@ services:
     database_test:
         image: 'postgres:alpine'
         environment:
-            POSTGRES_PASSWORD: main
-            POSTGRES_USER: main
-            POSTGRES_DB: main
+            POSTGRES_PASSWORD: main_test
+            POSTGRES_USER: main_test
+            POSTGRES_DB: main_test
         ports:
             # To allow the host machine to access the ports below, modify the lines below.
             # For example, to allow the host to connect to port 3306 on the container, you would change
