@@ -20,7 +20,7 @@ class ApiTokenFunctionalTest extends WebTestCase
         $apiToken = ApiTokenFactory::new()->create(['user' => $user]);
 
         $client->request('GET', '/secure', [], [], [
-            'X-DEBUG' => $apiToken->getToken(),
+            'X-TOKEN' => $apiToken->getToken(),
         ]);
 
         $this->assertResponseStatusCodeSame(200);
