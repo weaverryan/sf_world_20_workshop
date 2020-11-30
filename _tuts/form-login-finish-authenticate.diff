@@ -1,0 +1,22 @@
+diff --git a/src/Security/LoginFormAuthenticator.php b/src/Security/LoginFormAuthenticator.php
+index ce5fe41..8b7da76 100644
+--- a/src/Security/LoginFormAuthenticator.php
++++ b/src/Security/LoginFormAuthenticator.php
+@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+ use Symfony\Component\Security\Core\Exception\AuthenticationException;
+ use Symfony\Component\Security\Http\Authenticator\AuthenticatorInterface;
+ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
++use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
+ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+ use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
+ 
+@@ -35,7 +36,8 @@ class LoginFormAuthenticator implements AuthenticatorInterface
+         return new Passport(
+             new UserBadge($email, function($email) {
+                 return $this->userRepository->findOneBy(['email' => $email]);
+-            })
++            }),
++            new PasswordCredentials($password)
+         );
+     }
+ 

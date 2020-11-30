@@ -1,12 +1,13 @@
 diff --git a/config/packages/security.yaml b/config/packages/security.yaml
-index a98c834..c7fca02 100644
+index 44feaa7..44937dd 100644
 --- a/config/packages/security.yaml
 +++ b/config/packages/security.yaml
-@@ -17,6 +17,7 @@ security:
-         main:
-             anonymous: true
-             lazy: true
-+            http_basic: true
+@@ -22,6 +22,8 @@ security:
              provider: app_user_provider
+             custom_authenticators:
+                 - App\Security\LoginFormAuthenticator
++            remember_me:
++                secret: '%kernel.secret%'
              logout:
                  path: app_logout
+ 

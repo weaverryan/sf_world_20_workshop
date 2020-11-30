@@ -1,0 +1,13 @@
+diff --git a/templates/security/login.html.twig b/templates/security/login.html.twig
+index 99b1556..74b38c8 100644
+--- a/templates/security/login.html.twig
++++ b/templates/security/login.html.twig
+@@ -27,7 +27,7 @@
+     </div>
+ 
+     <input type="hidden" name="_csrf_token"
+-           value="{{ csrf_token('authenticate') }}"
++           value="{{ csrf_token('authenticate') }}BAR"
+     >
+ 
+     {#

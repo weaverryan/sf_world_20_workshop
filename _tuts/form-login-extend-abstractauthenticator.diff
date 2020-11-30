@@ -1,0 +1,32 @@
+diff --git a/src/Security/LoginFormAuthenticator.php b/src/Security/LoginFormAuthenticator.php
+index 8b7da76..c284e5b 100644
+--- a/src/Security/LoginFormAuthenticator.php
++++ b/src/Security/LoginFormAuthenticator.php
+@@ -7,13 +7,13 @@ use Symfony\Component\HttpFoundation\Request;
+ use Symfony\Component\HttpFoundation\Response;
+ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+ use Symfony\Component\Security\Core\Exception\AuthenticationException;
+-use Symfony\Component\Security\Http\Authenticator\AuthenticatorInterface;
++use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
+ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
+ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+ use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
+ 
+-class LoginFormAuthenticator implements AuthenticatorInterface
++class LoginFormAuthenticator extends AbstractAuthenticator
+ {
+     private $userRepository;
+ 
+@@ -41,11 +41,6 @@ class LoginFormAuthenticator implements AuthenticatorInterface
+         );
+     }
+ 
+-    public function createAuthenticatedToken(PassportInterface $passport, string $firewallName): TokenInterface
+-    {
+-        // TODO: Implement createAuthenticatedToken() method.
+-    }
+-
+     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
+     {
+         // TODO: Implement onAuthenticationSuccess() method.

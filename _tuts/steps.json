@@ -9,7 +9,122 @@
             "id": "old-system-add-http-basic",
             "name": "Old system: add http_basic",
             "description": null
+        },
+        {
+            "id": "new-system-enable-it",
+            "name": "New system: enable it",
+            "description": null
+        },
+        {
+            "id": "new-system-remove-anonymous",
+            "name": "New system: remove anonymous",
+            "description": null
+        },
+        {
+            "id": "form-login-remove-http-basic",
+            "name": "Form login: remove http_basic",
+            "description": null
+        },
+        {
+            "id": "form-login-empty-authenticator",
+            "name": "Form login: empty authenticator",
+            "description": null
+        },
+        {
+            "id": "form-login-add-to-firewall",
+            "name": "Form login: add to firewall",
+            "description": null
+        },
+        {
+            "id": "form-login-supports",
+            "name": "Form login: supports()",
+            "description": null
+        },
+        {
+            "id": "form-login-authenticate-start",
+            "name": "Form login: authenticate() start",
+            "description": null
+        },
+        {
+            "id": "form-login-finish-userbadge",
+            "name": "Form login: finish UserBadge",
+            "description": null
+        },
+        {
+            "id": "form-login-finish-authenticate",
+            "name": "Form login: finish authenticate()",
+            "description": null
+        },
+        {
+            "id": "form-login-extend-abstractauthenticator",
+            "name": "Form login: extend AbstractAuthenticator",
+            "description": null
+        },
+        {
+            "id": "form-login-null-on-last-2-methods",
+            "name": "Form login: null on last 2 methods",
+            "description": null
+        },
+        {
+            "id": "form-login-redirect-on-success",
+            "name": "Form login: redirect on success",
+            "description": null
+        },
+        {
+            "id": "form-login-extend-abstract-form-login",
+            "name": "Form Login: extend abstract form login",
+            "description": null
+        },
+        {
+            "id": "form-login-custom-error-message",
+            "name": "Form Login: custom error message",
+            "description": null
+        },
+        {
+            "id": "badges-add-csrftokenbadge",
+            "name": "Badges: Add CsrfTokenBadge",
+            "description": null
+        },
+        {
+            "id": "badges-mess-with-csrf-token",
+            "name": "Badges: mess with csrf token",
+            "description": null
+        },
+        {
+            "id": "badges-fix",
+            "name": "Badges: fix",
+            "description": null
+        },
+        {
+            "id": "rememberme-add-checkbox",
+            "name": "RememberMe: add checkbox",
+            "description": null
+        },
+        {
+            "id": "rememberme-enable-under-firewall",
+            "name": "RememberMe: enable under firewall",
+            "description": null
+        },
+        {
+            "id": "rememberme-add-badge",
+            "name": "RememberMe: add badge",
+            "description": null
+        },
+        {
+            "id": "entrypoint-re-add-http-basic",
+            "name": "Entrypoint: re-add http_basic",
+            "description": null
+        },
+        {
+            "id": "entrypoint-configure-entry-point",
+            "name": "Entrypoint: configure entry_point",
+            "description": null
+        },
+        {
+            "id": "entrypoint-use-targetpathtrait",
+            "name": "Entrypoint: use TargetPathTrait",
+            "description": null
         }
     ],
-    "sha": "6f3a65544d72befb71960b0de7fabecf940ccd72"
+    "sha": "d28734c344e1a5e9a5a037aa2216c455d5d4b7cf"
 }

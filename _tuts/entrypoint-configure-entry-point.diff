@@ -1,0 +1,12 @@
+diff --git a/config/packages/security.yaml b/config/packages/security.yaml
+index ea3ba34..819208f 100644
+--- a/config/packages/security.yaml
++++ b/config/packages/security.yaml
+@@ -20,6 +20,7 @@ security:
+             lazy: true
+             http_basic: true
+             provider: app_user_provider
++            entry_point: App\Security\LoginFormAuthenticator
+             custom_authenticators:
+                 - App\Security\LoginFormAuthenticator
+             remember_me:

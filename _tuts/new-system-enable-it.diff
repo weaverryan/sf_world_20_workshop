@@ -1,0 +1,11 @@
+diff --git a/config/packages/security.yaml b/config/packages/security.yaml
+index c7fca02..69530e1 100644
+--- a/config/packages/security.yaml
++++ b/config/packages/security.yaml
+@@ -1,4 +1,6 @@
+ security:
++    enable_authenticator_manager: true
++
+     encoders:
+         App\Entity\User:
+             algorithm: auto
