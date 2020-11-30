@@ -19,8 +19,11 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item {{ app.request.attributes.get('_route') == 'app_homepage' ? 'active' }}">
                     <a class="nav-link" href="{{ path('app_homepage') }}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item {{ app.request.attributes.get('_route') == 'app_secure' ? 'active' }}">
+                    <a class="nav-link" href="{{ path('app_secure') }}">Secure page <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}

@@ -14,6 +14,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
+    public const GLOBAL_DEFAULT_PASSWORD = 'foo';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
