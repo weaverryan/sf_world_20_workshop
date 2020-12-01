@@ -2,6 +2,7 @@
 
 namespace App\Security;
 
+use App\Entity\ApiToken;
 use App\Repository\ApiTokenRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -52,8 +53,16 @@ class ApiTokenAuthenticator implements AuthenticatorInterface
         return $passport;
     }
 
+    /**
+     * @param SelfValidatingPassport $passport
+     */
     public function createAuthenticatedToken(PassportInterface $passport, string $firewallName): TokenInterface
     {
+        $apiToken = $passport->getAttribute('api_token');
+        if (!$apiToken instanceof ApiToken) {
+            throw new \Exception('something went funny');
+        }
+
         return new PostAuthenticationToken($passport->getUser(), $firewallName, $passport->getUser()->getRoles());
     }
 
