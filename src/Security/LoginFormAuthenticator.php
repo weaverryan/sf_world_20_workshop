@@ -2,6 +2,7 @@
 
 namespace App\Security;
 
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -13,6 +14,13 @@ use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 
 class LoginFormAuthenticator implements AuthenticatorInterface
 {
+    private $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     public function supports(Request $request): ?bool
     {
         return $request->attributes->get('_route') === 'app_login'
@@ -26,7 +34,7 @@ class LoginFormAuthenticator implements AuthenticatorInterface
 
         return new Passport(
             new UserBadge($email, function($email) {
-
+                return $this->userRepository->findOneBy(['email' => $email]);
             })
         );
     }
