@@ -18,9 +18,12 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
+use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
+    use TargetPathTrait;
+
     private $userRepository;
     private $router;
 
@@ -57,6 +60,10 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+        if ($target = $this->getTargetPath($request->getSession(), $firewallName)) {
+            return new RedirectResponse($target);
+        }
+
         return new RedirectResponse($this->router->generate('app_homepage'));
     }
 
