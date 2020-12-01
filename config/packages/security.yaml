@@ -20,6 +20,7 @@ security:
             lazy: true
             http_basic: true
             provider: app_user_provider
+            entry_point: App\Security\LoginFormAuthenticator
             custom_authenticators:
                 - App\Security\LoginFormAuthenticator
             remember_me:
