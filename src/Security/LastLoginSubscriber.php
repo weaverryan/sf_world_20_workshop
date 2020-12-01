@@ -5,6 +5,8 @@ namespace App\Security;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+use Symfony\Component\Security\Http\Event\CheckPassportEvent;
 use Symfony\Component\Security\Http\Event\LoginSuccessEvent;
 
 class LastLoginSubscriber implements EventSubscriberInterface
@@ -28,10 +30,22 @@ class LastLoginSubscriber implements EventSubscriberInterface
         $this->entityManager->flush();
     }
 
+    public function onCheckPassport(CheckPassportEvent $event)
+    {
+        $userBadge = $event->getPassport()->getBadge(UserBadge::class);
+
+        if (!$userBadge instanceof UserBadge) {
+            throw new \Exception('What the heck?');
+        }
+
+
+    }
+
     public static function getSubscribedEvents()
     {
         return [
             LoginSuccessEvent::class => 'onLoginSuccess',
+            CheckPassportEvent::class => 'onCheckPassport',
         ];
     }
 }
