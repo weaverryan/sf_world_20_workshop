@@ -63,7 +63,12 @@ class ApiTokenAuthenticator implements AuthenticatorInterface
             throw new \Exception('something went funny');
         }
 
-        return new PostAuthenticationToken($passport->getUser(), $firewallName, $passport->getUser()->getRoles());
+        $roles = $passport->getUser()->getRoles();
+        foreach ($apiToken->getScopes() as $scope) {
+            $roles[] = 'ROLE_SCOPE_'.strtoupper($scope);
+        }
+
+        return new PostAuthenticationToken($passport->getUser(), $firewallName, $roles);
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
