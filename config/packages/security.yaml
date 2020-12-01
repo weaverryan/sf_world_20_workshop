@@ -20,6 +20,8 @@ security:
             lazy: true
             #http_basic: true
             provider: app_user_provider
+            custom_authenticators:
+                - App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
 

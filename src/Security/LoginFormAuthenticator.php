@@ -13,7 +13,7 @@ class LoginFormAuthenticator implements AuthenticatorInterface
 {
     public function supports(Request $request): ?bool
     {
-        // TODO: Implement supports() method.
+        dd($request);
     }
 
     public function authenticate(Request $request): PassportInterface
