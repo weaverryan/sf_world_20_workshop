@@ -18,7 +18,7 @@ security:
             security: false
         main:
             lazy: true
-            http_basic: true
+            #http_basic: true
             provider: app_user_provider
             logout:
                 path: app_logout
