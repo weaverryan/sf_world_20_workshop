@@ -43,11 +43,11 @@ class LoginFormAuthenticator extends AbstractAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        // TODO: Implement onAuthenticationSuccess() method.
+        return null;
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
-        // TODO: Implement onAuthenticationFailure() method.
+        return null;
     }
 }
